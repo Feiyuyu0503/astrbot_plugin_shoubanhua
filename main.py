@@ -707,7 +707,7 @@ class FigurineProPlugin(Star):
                     if "error" in data: return data["error"].get("message", json.dumps(data["error"]))
                     
                     if "choices" in data and isinstance(data["choices"], list) and len(data["choices"]) == 0:
-                        return f"⚠️ 生成失败：被模型安全系统拦截。\n原因：提示词[{prompt[:5]}...]或图片可能包含敏感/色情内容(Gemini模型对此极度敏感)。\n建议：\n1. 修改提示词，避免'涩涩'等词汇，改用'鉴赏'、'分析'。\n2. 更换宽松模型 (如 gpt-4o / nano-banana)。"
+                        return f"⚠️ 生成失败：被模型安全系统拦截。\n原因：提示词[{prompt[:5]}...]或图片可能包含敏感/色情内容(Gemini模型对此极度敏感)。\n建议：\n1. 修改提示词，避免'涩涩'等词汇，改用'鉴赏'、'分析'。\n2. 更换宽松模型 (如 nano-banana)。\n3. 或者使用优质渠道gemini优质渠道在api创建里面调整"
                     
                     if "choices" in data and len(data["choices"]) > 0:
                         choice = data["choices"][0]
@@ -740,3 +740,4 @@ class FigurineProPlugin(Star):
     async def terminate(self):
         if self.iwf: await self.iwf.terminate()
         logger.info("[FigurinePro] 插件已终止")
+
