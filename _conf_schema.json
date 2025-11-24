@@ -2,7 +2,7 @@
     "api_url": {
         "description": "【通用】API的URL地址",
         "type": "string",
-        "hint": "通用模式：填完整URL（如 https://api.bltcy.ai/v1/chat/completions）。Gemini官方模式：填Base URL（如 https://反代或者官方地址），插件会自动拼接模型名。",
+        "hint": "通用模式：填完整URL。Gemini官方模式：填Base URL（如 .../v1beta/models/），插件会自动拼接模型名。",
         "default": "https://api.bltcy.ai/v1/chat/completions"
     },
     "api_mode": {
@@ -78,6 +78,18 @@
         "type": "string",
         "hint": "格式: http://127.0.0.1:7890",
         "default": ""
+    },
+    "timeout": {
+        "description": "【网络】请求超时时间 (秒)",
+        "type": "int",
+        "hint": "API 请求和图片下载的最大等待时间。",
+        "default": 120
+    },
+    "download_retries": {
+        "description": "【网络】图片下载重试次数",
+        "type": "int",
+        "hint": "当生成的图片下载失败时，自动重试的次数。",
+        "default": 3
     },
     "help_text": {
         "description": "【帮助】使用 #lm帮助 指令时显示的文本",
@@ -167,4 +179,3 @@
         "default": []
     }
 }
-
